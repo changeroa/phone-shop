@@ -6,6 +6,10 @@ import Link from 'next/link';
 import Header from '@/components/ui/Header';
 import { phones, plans, services } from '@/lib/mockData';
 
+export function generateStaticParams() {
+  return phones.map((phone) => ({ id: phone.id }));
+}
+
 type ActivationType = '신규' | '번호이동' | '기기변경';
 
 export default function ApplyPage() {

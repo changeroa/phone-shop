@@ -3,6 +3,11 @@
 import Link from 'next/link';
 import { CheckCircle } from 'lucide-react';
 import Header from '@/components/ui/Header';
+import { phones } from '@/lib/mockData';
+
+export function generateStaticParams() {
+  return phones.map((phone) => ({ id: phone.id }));
+}
 
 export default function CompletePage() {
   const orderNumber = `ORD-${new Date().toISOString().slice(0, 10).replace(/-/g, '')}-${Math.floor(Math.random() * 1000).toString().padStart(3, '0')}`;

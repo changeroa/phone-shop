@@ -3,6 +3,11 @@
 import { useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { phones } from '@/lib/mockData';
+
+export function generateStaticParams() {
+  return phones.map((phone) => ({ id: phone.id }));
+}
 
 const mockPhone = {
   id: '1',

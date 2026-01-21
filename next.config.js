@@ -1,19 +1,15 @@
 const isProd = process.env.NODE_ENV === 'production';
 
-module.exports = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   reactStrictMode: true,
   output: 'export',
   basePath: isProd ? '/phone-shop' : '',
   assetPrefix: isProd ? '/phone-shop/' : '',
+  trailingSlash: true,
   images: {
     unoptimized: true,
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'images.unsplash.com',
-        pathname: '/**',
-      },
-    ],
   },
-  trailingSlash: true,
-}
+};
+
+module.exports = nextConfig;

@@ -3,6 +3,11 @@
 import { useState } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
+import { orders } from '@/lib/mockData';
+
+export function generateStaticParams() {
+  return orders.map((order) => ({ id: order.id }));
+}
 
 // Mock data - replace with actual API call
 const mockOrder = {

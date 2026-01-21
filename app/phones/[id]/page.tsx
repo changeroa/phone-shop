@@ -7,6 +7,10 @@ import Link from 'next/link';
 import Header from '@/components/ui/Header';
 import { phones, plans } from '@/lib/mockData';
 
+export function generateStaticParams() {
+  return phones.map((phone) => ({ id: phone.id }));
+}
+
 export default function PhoneDetailPage() {
   const params = useParams();
   const phoneId = Array.isArray(params.id) ? params.id[0] : params.id;
